@@ -1,0 +1,21 @@
+{
+  "name": "learn-decorator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node calculate-time.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  }
+}
