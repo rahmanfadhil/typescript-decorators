@@ -1,0 +1,13 @@
+name: trigger-workflow
+on: pull_request
+
+jobs:
+  size-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: trigger-workflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IGNORED: "**/package.json\n**/package-lock.json"
+        run: ls -lah
+

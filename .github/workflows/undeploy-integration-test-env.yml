@@ -1,0 +1,25 @@
+name: Undeploy integration test environment
+on:
+  workflow_run:
+    workflows: ["trigger-workflow"]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: step a1
+        run: echo "github.event.workflow_run success"
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: step b1
+        run: echo "github.event.workflow_run failure"
+  on-skip:
+    runs-on: ubuntu-latest
+    if: ${{ jobs.integration-test.if == 'failure' }}
+    steps:
+      - name: step c1
+        run: echo "github.event.workflow_run failure"
